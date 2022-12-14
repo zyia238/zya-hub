@@ -1,9 +1,9 @@
 import { Routes , Route } from 'react-router-dom'
 
-import Navigation from './routes/Navigation.component'
-import Home from './routes/Home.component'
-import About from './routes/About.component'
-import Categories from './route/Categories.component'
+import Navigation from './routes/Navigation/Navigation.component'
+import Home from './routes/Home/Home.component'
+import About from './routes/About/About.component'
+import Categories from './routes/Categories/Categories.component'
 
 function App() {
   return (
