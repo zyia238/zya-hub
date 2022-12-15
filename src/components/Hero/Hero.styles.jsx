@@ -7,7 +7,7 @@ export const Img = styled.img`
     width:110vw;
     height:100vh;
     position:absolute;
-    transition:'all .2s ease'
+    transition:all .2s ease
 `
 
 export const HeroWrapper = styled.section`
