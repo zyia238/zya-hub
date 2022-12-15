@@ -23,6 +23,7 @@ export const Wave = styled.img`
     width:100%;
     height:90px;
     z-index:20;
+    user-select:none;
 `
 
 export const ShowMore = styled.div`
@@ -34,6 +35,7 @@ export const ShowMore = styled.div`
 		margin: auto;
 		font-size: 26px;
 		z-index: 100;
+        user-select:none;
 `
 
 export const Arrow = styled(BsArrowDownCircle)`
