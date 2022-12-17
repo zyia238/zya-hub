@@ -1,6 +1,8 @@
-import { useState , useEffect , useRef } from 'react'
+import { useState , useEffect , useRef , useContext } from 'react'
 
 import DancingTitle from '../DancingTitle/DancingTitle.component'
+
+import {HeroContext} from '../../context/Hero/Hero.context'
 
 import Bg1 from '../../assets/background1.jpg'
 import Bg2 from '../../assets/background2.png'
@@ -14,12 +16,15 @@ import {Img ,HeroWrapper ,Wave , ShowMore ,Arrow} from './Hero.styles'
 const Home = () => {
     const [percentage, setPercentage] = useState(0.5)
     const [isImageLoaded,setIsImageLoaded] = useState(false)
-
+    const [hero,setHero] = useState(null)
     const heroContainer = useRef(null)
+
+    const {dispatch} = useContext(HeroContext)
 
     useEffect(()=>{
         let { current } = heroContainer
         let startingPoint
+        setHero(current)
         current.addEventListener('mouseenter',(e)=>{
             startingPoint = e.clientX
             const mouseMoveHandler = (e)=>{
@@ -33,13 +38,29 @@ const Home = () => {
                 current.removeEventListener('mousemove',mouseMoveHandler)
             })
         })
-    },)
+       
+    })
+
+    useEffect(()=>{
+        window.addEventListener('scroll',()=>{
+            if(window.scrollY > heroContainer.current.clientHeight / 2){
+                dispatch({type:'NAV_GO_DARK'})
+            }else(
+                dispatch({type:'NAV_GO_TRANSPARENT'})
+            )
+        })
+    },[])
+
+
     const handleOnLoad = () => {
         setIsImageLoaded(true)
     }
 
     const handleShowMore = () => {
-        console.log('haha')
+        window.scrollTo({
+            top:hero.clientHeight + '',
+            behavior:'smooth'
+        })
     }
 
     return (

@@ -1,0 +1,34 @@
+.accordion {
+    .MuiAccordion-root.Mui-expanded {
+        margin: 0 !important;
+    }
+
+    .MuiAccordion-root:before {
+        height: 0 !important;
+    }
+
+    .MuiAccordion-root{
+        box-shadow: none;
+        border-top: var(--borderColor);
+        // border-top: 1px solid rgba(34, 36, 38, .1);
+        border-radius: 0!important;
+    }
+
+    .MuiAccordionSummary-root,.MuiAccordionSummary-root.Mui-expanded{
+        min-height: 0;
+    }
+
+    .MuiAccordionSummary-content.Mui-expanded{
+        margin: 12px 0;
+    }
+
+    .MuiTypography-root {
+        font-size: 0.7222rem !important;
+        padding: 0 0.8899rem !important;
+        box-shadow: none;
+        border: 0;
+    }
+    .MuiAccordionSummary-root{
+        padding: 0;
+    }
+} 

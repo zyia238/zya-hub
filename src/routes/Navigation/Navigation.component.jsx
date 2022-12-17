@@ -1,11 +1,24 @@
-import { Outlet , Link } from "react-router-dom"
+import { useEffect , useContext } from "react"
 
-import { Logo ,NavItem ,NavWrapper} from './Navigation.styles'
+import { Outlet , useLocation} from "react-router-dom"
+
+import {HeroContext} from '../../context/Hero/Hero.context'
+
+import Intro from '../../components/Intro/Intro.component'
+import Hero from '../../components/Hero/Hero.component'
+
+
+import { Logo ,NavItem ,NavWrapper , ContentWrapper ,MiddlePart} from './Navigation.styles'
 
 const Navigation = () => {
+    const { pathname } = useLocation()
+
+    const {state} = useContext(HeroContext)
+
+
     return (
         <>
-            <NavWrapper>
+            <NavWrapper className={state.transparent ? 'transparent' : null}>
                 <Logo to='/'>
                     <h3>
                         Zya's Hub
@@ -27,7 +40,22 @@ const Navigation = () => {
                     </span>
                 </NavItem>
             </NavWrapper>
-            <Outlet />
+            <section className='HomeWrapper'>
+                {
+                    pathname === '/' && (
+                        <Hero />
+                    )
+
+                }
+                <ContentWrapper>
+                    <Intro />
+                    <MiddlePart>
+                        <Outlet />
+                    </MiddlePart>
+                    <Intro />
+                </ContentWrapper>
+                
+            </section>
         </>
     )
 }

@@ -1,9 +1,9 @@
-import Hero from '../../components/Hero/Hero.component'
-
 const Home = () => {
     return (
         <>
-            <Hero></Hero>
+            <div style={{height:'2000px'}}>
+
+            </div>
         </>
     )
 }

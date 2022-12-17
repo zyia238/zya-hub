@@ -18,10 +18,28 @@ export const NavWrapper = styled.header`
     position:fixed;
     width:100vw;
     top:0;
-    // background-color:black;
     display:flex;
     height:2.77778rem;
     line-height:2.77778rem;
     padding: 0 1.11111rem;
     z-index:100;
+    background-color:black;
+    transition:all .8s ease;
+
+    &.transparent{
+        background-color:transparent
+    }
+`
+
+export const ContentWrapper = styled.section`
+    display:flex;
+    width:1400px;
+    margin:1rem auto;
+    align-items: flex-start;
+`
+
+export const MiddlePart = styled.section`
+    width:62.5%;
+    background-color:red;
+    margin:0 1rem;
 `
