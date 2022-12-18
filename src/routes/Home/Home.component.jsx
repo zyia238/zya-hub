@@ -1,8 +1,10 @@
+import BlogsList from '../../components/BlogsList/BlogsList.component'
+
 const Home = () => {
     return (
         <>
-            <div style={{height:'2000px'}}>
-
+            <div>
+                <BlogsList/>
             </div>
         </>
     )

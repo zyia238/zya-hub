@@ -40,6 +40,5 @@ export const ContentWrapper = styled.section`
 
 export const MiddlePart = styled.section`
     width:62.5%;
-    background-color:red;
     margin:0 1rem;
 `
