@@ -9,8 +9,10 @@ import { getBlogData } from '../../api/Blog'
 
 import './BlogsList.styles.scss'
 
+import { IBlog } from 'types';
+
 const BlogsList = () => {
-    const [blogsData , setBlogsData] = useState([])
+    const [blogsData , setBlogsData] = useState<IBlog[]>([])
 
     useEffect(()=>{
         getBlogData().then(res=>{
@@ -21,8 +23,8 @@ const BlogsList = () => {
     return (
         <>
             <section>
-                {blogsData.map(blog => {
-                    return <Blog {...blog}></Blog>
+                {blogsData.map((blog,index) => {
+                    return <Blog {...blog} key={index}></Blog>
                 })}
             </section>
             <section className='stackWrapper'>

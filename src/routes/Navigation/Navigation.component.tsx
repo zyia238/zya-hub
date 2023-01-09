@@ -1,4 +1,5 @@
-import { useEffect , useContext } from "react"
+import * as React from 'react'
+import { useContext } from "react"
 
 import { Outlet , useLocation} from "react-router-dom"
 
@@ -13,12 +14,12 @@ import { Logo ,NavItem ,NavWrapper , ContentWrapper ,MiddlePart} from './Navigat
 const Navigation = () => {
     const { pathname } = useLocation()
 
-    const {state} = useContext(HeroContext)
+    const {transparent} = useContext(HeroContext)
 
 
     return (
         <>
-            <NavWrapper className={state.transparent ? 'transparent' : null}>
+            <NavWrapper className={transparent ? 'transparent' : undefined}>
                 <Logo to='/'>
                     <h3>
                         Zya's Hub

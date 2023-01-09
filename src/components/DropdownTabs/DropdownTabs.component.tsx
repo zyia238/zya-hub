@@ -1,3 +1,5 @@
+import { useRef } from 'react'
+
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -6,8 +8,16 @@ import KeyboardArrowRightTwoToneIcon from '@mui/icons-material/KeyboardArrowRigh
 
 import './DropdownTabs.styles.scss'
 
+interface DropdownTabsProps {
+    title:string;
+    emoji:string;
+    content:string;
+}
 
-const DropdownTabs = ({title,emoji,content}) => {
+
+
+const DropdownTabs = ({title,emoji,content}:DropdownTabsProps) => {
+    const expandProperty = useRef<string>('expanded')
     return (
         <>
             <section className='accordion'>
@@ -16,7 +26,7 @@ const DropdownTabs = ({title,emoji,content}) => {
                     expandIcon={<KeyboardArrowRightTwoToneIcon fontSize='small'/>}
                     aria-controls="panel1a-content"
                     classes={{
-                        expanded: {
+                        [expandProperty.current]: {
                             margin:0
                         },
                     }}
